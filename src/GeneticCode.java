@@ -157,7 +157,7 @@ public class GeneticCode {
         return map;
     }
     public ArrayList<String> transcribe(){
-        List<String> outRna = new ArrayList<>();
+        ArrayList<String> outRna = new ArrayList<>();
         for(int i = 0; i < dna.length();i++){
             String letter = dna.substring(i,i+1);
             if(letter.equals("A")){
@@ -173,5 +173,6 @@ public class GeneticCode {
                 outRna.add("C");
             }
         }
+        return outRna;
     }
 }
