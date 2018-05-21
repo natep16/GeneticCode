@@ -70,22 +70,20 @@ public class GeneticCode {
         ArrayList<String> codons = rnaToCodons(rna);
         ArrayList<String> polypeptide = new ArrayList<>();
         int start = findFirstCodon(codons, "AUG");
-        boolean go = true;
+        boolean go = false;
         HashMap<String, String> AminoAcidMap= getAminoAcidMap();
 
-        int i = 0;
-        while(go)
+        for (int i = 0; i < numCodons(); i++)
         {
             String aminoAcid = AminoAcidMap.get(codons.get(i));
-
-            if (!(aminoAcid.equals("stop")))
-            {
-                polypeptide.add(aminoAcid);
-                i++;
-            }
-            else
+            if(equals(aminoAcid, "met"))
+                go = true;
+            else if (equals(aminoAcid, "stop"))
                 go = false;
+            if (go)
+                polypeptide.add(aminoAcid);
         }
+
         return polypeptide;
     }
 
@@ -112,7 +110,7 @@ public class GeneticCode {
     {
         ArrayList<String> codons = new ArrayList<String>();
 
-        for (int i = 0; i < rna.length(); i+=3)
+        for (int i = 0; i < rna.length() - 3; i+=3)
             codons.add(rna.substring(i, i + 3));
 
         return codons;
