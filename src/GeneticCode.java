@@ -4,7 +4,7 @@ import java.util.List;
 
 public class GeneticCode {
     // instance variables
-    String rna, dna, mRNA;
+    String rna, dna;
     private static final String[] RNA_BASES = {"U","C","A","G"};
 
     /**
@@ -90,7 +90,7 @@ public class GeneticCode {
     public static int findFirstCodon(ArrayList<String> codons, String find)
     {
         for (int i = 0; i < codons.size(); i+=3)
-            if (equals(codons.get(i),find))
+            if (codons.get(i).equals(find))
                 return i;
         return -1;
     }
@@ -123,7 +123,7 @@ public class GeneticCode {
 
     /**
      * Converts RNA string to an ArrayList of codon Strings
-     * @param String rna
+     * @param rna String
      * @return ArrayList<String>
      */
     public static ArrayList<String> rnaToCodons(String rna)
@@ -137,7 +137,7 @@ public class GeneticCode {
     }
     /**
      * Returns a map that properly matches the codon (not anticodon) with the corresponding amimo acid it codes for.
-     * @param none
+     * @param \none
      * @return HashMap<String, String>
      */
     public static HashMap<String, String> getAminoAcidMap()
