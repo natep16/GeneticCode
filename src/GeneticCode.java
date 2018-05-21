@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class GeneticCode {
     // instance variables
-    private String dna, rna;
+    String rna, dna, mRNA;
     private static final String[] RNA_BASES = {"U","C","A","G"};
 
     /**
@@ -46,23 +47,21 @@ public class GeneticCode {
         return rna.length() / 3;
     }
 
-    private String typeOfCode(String code)
+    private typeOfCode(String code)
     {
         if (code.contains("U"))
-            return "RNA";
-        else
-            return "DNA";
 
     }
 
     /**
      * Translates mRNA into a polypeptide of amino acids.
+     * @param none
      * @return ArrayList<String>
      */
     public ArrayList<String> translate()
     {
-        ArrayList<String> codons = rnaToCodons(rna);
-        ArrayList<String> polypeptide = new ArrayList<>();
+        ArrayList<String> codons = rnaToCodons(mRNA);
+        ArrayList<String> polypeptide = new ArrayList<String>();
         int start = findFirstCodon(codons, "AUG");
         boolean go = true;
         HashMap<String, String> AminoAcidMap= getAminoAcidMap();
@@ -96,8 +95,30 @@ public class GeneticCode {
         return -1;
     }
 
-    private static boolean equals(String a, String b) {
-        return (a.compareTo(b) == 0);
+    /**
+     * Finds first of any the given sequences in the code.
+     * @param String code, String[] sequences
+     * @return index of first occurence
+     */
+    public static int findFirstOccurence(String code, String[] sequences)
+    {
+        int[] indices = new int[sequences.length];
+        int min = Integer.MAX_VALUE;
+
+        for (int i = 0; i < sequences.length; i++)
+        {
+            int temp = code.indexOf(sequences[i]);
+            if (!(temp == -1))
+                indices[i] = temp;
+            else
+                indices[i] = Integer.MAX_VALUE;
+        }
+
+        for (int i = 0; i < sequences.length; i++)
+            if (indices[i] < min)
+                min = indices[i];
+
+        return min;
     }
 
     /**
@@ -134,5 +155,23 @@ public class GeneticCode {
             map.put(possibleCodons.get(i),aminoAcidsInOrder[i]); //correctly matches each codon with the right amino acid
 
         return map;
+    }
+    public ArrayList<String> transcribe(){
+        List<String> outRna = new ArrayList<>();
+        for(int i = 0; i < dna.length();i++){
+            String letter = dna.substring(i,i+1);
+            if(letter.equals("A")){
+                outRna.add("U");
+            }
+            else if(letter.equals("T")){
+                outRna.add("A");
+            }
+            else if(letter.equals("C")){
+
+            }
+            else if(letter.equals("G")){
+
+            }
+        }
     }
 }
