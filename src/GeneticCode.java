@@ -104,10 +104,6 @@ public class GeneticCode {
         return -1;
     }
 
-    private static boolean equals(String a, String b) {
-        return (a.compareTo(b) == 0);
-    }
-
     /**
      * Converts RNA string to an ArrayList of codon Strings
      * @param rna A String of RNA
