@@ -165,4 +165,23 @@ public class GeneticCode {
         }
         return outRna;
     }
+    public String reverseTranscribe(){
+        String outDna = "";
+        for(int i = 0; i < rna.length();i++){
+            String letter = rna.substring(i,i+1);
+            if(letter.equals("A")){
+                outDna += "T";
+            }
+            else if(letter.equals("T")){
+                outDna += "A";
+            }
+            else if(letter.equals("C")){
+                outDna += "G";
+            }
+            else if(letter.equals("G")){
+                outDna += "C";
+            }
+        }
+        return outDna;
+    }
 }
