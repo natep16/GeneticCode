@@ -167,10 +167,10 @@ public class GeneticCode {
                 outRna.add("A");
             }
             else if(letter.equals("C")){
-
+                outRna.add("G");
             }
             else if(letter.equals("G")){
-
+                outRna.add("C");
             }
         }
     }
