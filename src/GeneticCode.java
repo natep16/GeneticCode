@@ -4,7 +4,7 @@ import java.util.List;
 
 public class GeneticCode {
     // instance variables
-    String rna, dna;
+    String rna, dna, mRNA;
     private static final String[] RNA_BASES = {"U","C","A","G"};
 
     /**
@@ -16,6 +16,7 @@ public class GeneticCode {
         if (typeOfCode(code).equalsIgnoreCase("DNA"))
         {
             dna = code;
+            mRNA = transcribe();
             //rna = transcribe(code);
         }
         else if (typeOfCode(code).equalsIgnoreCase("RNA"))
@@ -59,7 +60,7 @@ public class GeneticCode {
      */
     public ArrayList<String> translate()
     {
-        ArrayList<String> codons = rnaToCodons(mRNA);
+        ArrayList<String> codons = rnaToCodons(rna);
         ArrayList<String> polypeptide = new ArrayList<String>();
         int start = findFirstCodon(codons, "AUG");
         boolean go = true;
@@ -155,21 +156,21 @@ public class GeneticCode {
 
         return map;
     }
-    public ArrayList<String> transcribe(){
-        ArrayList<String> outRna = new ArrayList<>();
+    public String transcribe(){
+        String outRna = "";
         for(int i = 0; i < dna.length();i++){
             String letter = dna.substring(i,i+1);
             if(letter.equals("A")){
-                outRna.add("U");
+                outRna += "U";
             }
             else if(letter.equals("T")){
-                outRna.add("A");
+                outRna += "A";
             }
             else if(letter.equals("C")){
-                outRna.add("G");
+                outRna += "G";
             }
             else if(letter.equals("G")){
-                outRna.add("C");
+                outRna += "C";
             }
         }
         return outRna;
