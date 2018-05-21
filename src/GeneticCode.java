@@ -1,13 +1,16 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class GeneticCode {
     // instance variables
     String rna, dna;
-
     private static final String[] RNA_BASES = {"U","C","A","G"};
 
     /**
      * Constructor for GeneticCode objects. Use for sequences longer than 20 base pairs.
      */
     public GeneticCode(String code)
+
     {
         if (typeOfCode(code).equalsIgnoreCase("DNA"))
         {
@@ -45,8 +48,8 @@ public class GeneticCode {
 
     private typeOfCode(String code)
     {
-        for (int i = 0; i < code.length(); i++)
-            if (code.substring(i, i
+        if (code.contains("U"))
+
     }
 
     /**
@@ -130,5 +133,26 @@ public class GeneticCode {
             codons.add(rna.substring(i, i + 3));
 
         return codons;
+    }
+    /**
+     * Returns a map that properly matches the codon (not anticodon) with the corresponding amimo acid it codes for.
+     * @param none
+     * @return HashMap<String, String>
+     */
+    public static HashMap<String, String> getAminoAcidMap()
+    {
+        HashMap<String,String> map = new HashMap<String,String>();
+        ArrayList<String> possibleCodons = new ArrayList<String>();
+        String[] aminoAcidsInOrder = {"phe","phe","leu","leu", "ser","ser","ser","ser","tyr","tyr","stop","stop","cys","cys","stop","trp", "leu","leu","leu","leu", "pro","pro","pro","pro","his","his","gln","gln","arg","arg","arg","arg","ile","ile","ile", "met","thr","thr","thr","thr","asn","asn","lys","lys","ser","ser","arg","arg","val","val","val","val","ala","ala","ala","ala","asp","asp","glu","glu","gly","gly", "gly", "gly"};
+
+        for (int i = 0; i < 4; i++)
+            for (int j = 0; j < 4; j++)
+                for (int k = 0; k < 4; k++)
+                    possibleCodons.add(RNA_BASES[i] + RNA_BASES[j] + RNA_BASES[k]); //adds every possible codon to the possibleCodons ArrayList
+
+        for (int i = 0; i < possibleCodons.size(); i++)
+            map.put(possibleCodons.get(i),aminoAcidsInOrder[i]); //correctly matches each codon with the right amino acid
+
+        return map;
     }
 }
