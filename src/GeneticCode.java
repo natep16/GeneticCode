@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class GeneticCode {
     // instance variables
@@ -91,6 +92,8 @@ public class GeneticCode {
 
     /**
      * Returns index of the first occurence of specified codon within given codon ArrayList.
+     * @param codons ArrayList<String>
+     * @param find String to find
      * @return int index
      */
     public static int findFirstCodon(ArrayList<String> codons, String find)
@@ -101,7 +104,9 @@ public class GeneticCode {
         return -1;
     }
 
-
+    private static boolean equals(String a, String b) {
+        return (a.compareTo(b) == 0);
+    }
 
     /**
      * Converts RNA string to an ArrayList of codon Strings
@@ -144,4 +149,23 @@ public class GeneticCode {
     }
 
 
+    public String transcribe(){
+        String outRna = "";
+        for(int i = 0; i < dna.length();i++){
+            String letter = dna.substring(i,i+1);
+            if(letter.equals("A")){
+                outRna += "U";
+            }
+            else if(letter.equals("T")){
+                outRna += "A";
+            }
+            else if(letter.equals("C")){
+                outRna += "G";
+            }
+            else if(letter.equals("G")){
+                outRna += "C";
+            }
+        }
+        return outRna;
+    }
 }
