@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 public class GeneticCode {
     // instance variables
-    String rna, dna;
+    private String dna, rna;
     private static final String[] RNA_BASES = {"U","C","A","G"};
 
     /**
@@ -46,21 +46,23 @@ public class GeneticCode {
         return rna.length() / 3;
     }
 
-    private typeOfCode(String code)
+    private String typeOfCode(String code)
     {
         if (code.contains("U"))
+            return "RNA";
+        else
+            return "DNA";
 
     }
 
     /**
      * Translates mRNA into a polypeptide of amino acids.
-     * @param none
      * @return ArrayList<String>
      */
     public ArrayList<String> translate()
     {
-        ArrayList<String> codons = rnaToCodons(mRNA);
-        ArrayList<String> polypeptide = new ArrayList<String>();
+        ArrayList<String> codons = rnaToCodons(rna);
+        ArrayList<String> polypeptide = new ArrayList<>();
         int start = findFirstCodon(codons, "AUG");
         boolean go = true;
         HashMap<String, String> AminoAcidMap= getAminoAcidMap();
@@ -94,30 +96,8 @@ public class GeneticCode {
         return -1;
     }
 
-    /**
-     * Finds first of any the given sequences in the code.
-     * @param String code, String[] sequences
-     * @return index of first occurence
-     */
-    public static int findFirstOccurence(String code, String[] sequences)
-    {
-        int[] indices = new int[sequences.length];
-        int min = Integer.MAX_VALUE;
-
-        for (int i = 0; i < sequences.length; i++)
-        {
-            int temp = code.indexOf(sequences[i]);
-            if (!(temp == -1))
-                indices[i] = temp;
-            else
-                indices[i] = Integer.MAX_VALUE;
-        }
-
-        for (int i = 0; i < sequences.length; i++)
-            if (indices[i] < min)
-                min = indices[i];
-
-        return min;
+    private static boolean equals(String a, String b) {
+        return (a.compareTo(b) == 0);
     }
 
     /**
