@@ -55,7 +55,6 @@ public class GeneticCode {
 
     /**
      * Translates mRNA into a polypeptide of amino acids.
-     * @param none
      * @return ArrayList<String>
      */
     public ArrayList<String> translate()
@@ -84,7 +83,8 @@ public class GeneticCode {
 
     /**
      * Returns index of the first occurence of specified codon within given codon ArrayList.
-     * @param ArrayList<String> codons, String find
+     * @param codons ArrayList<String>
+     * @param find String to find
      * @return int index
      */
     public static int findFirstCodon(ArrayList<String> codons, String find)
@@ -97,8 +97,8 @@ public class GeneticCode {
 
     /**
      * Finds first of any the given sequences in the code.
-     * @param String code, String[] sequences
-     * @return index of first occurence
+     * @param code, String[] sequences
+     * @return int index of first occurence
      */
     public static int findFirstOccurence(String code, String[] sequences)
     {
@@ -123,7 +123,7 @@ public class GeneticCode {
 
     /**
      * Converts RNA string to an ArrayList of codon Strings
-     * @param rna String
+     * @param rna A String of RNA
      * @return ArrayList<String>
      */
     public static ArrayList<String> rnaToCodons(String rna)
@@ -137,7 +137,6 @@ public class GeneticCode {
     }
     /**
      * Returns a map that properly matches the codon (not anticodon) with the corresponding amimo acid it codes for.
-     * @param \none
      * @return HashMap<String, String>
      */
     public static HashMap<String, String> getAminoAcidMap()
