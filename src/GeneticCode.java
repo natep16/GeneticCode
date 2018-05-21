@@ -1,10 +1,9 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class GeneticCode {
     // instance variables
-    String rna, dna, mRNA;
+    private String rna, dna;
     private static final String[] RNA_BASES = {"U","C","A","G"};
 
     /**
@@ -16,8 +15,7 @@ public class GeneticCode {
         if (typeOfCode(code).equalsIgnoreCase("DNA"))
         {
             dna = code;
-            mRNA = transcribe();
-            //rna = transcribe(code);
+            rna = transcribe();
         }
         else if (typeOfCode(code).equalsIgnoreCase("RNA"))
         {
