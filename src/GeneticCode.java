@@ -17,7 +17,7 @@ public class GeneticCode {
         if (typeOfCode(code).equalsIgnoreCase("DNA"))
         {
             dna = code;
-            //rna = transcribe(code);
+            rna = transcribe();
         }
         else if (typeOfCode(code).equalsIgnoreCase("RNA"))
         {
@@ -110,6 +110,7 @@ public class GeneticCode {
 
     /**
      * Converts RNA string to an ArrayList of codon Strings
+     * @param rna A String of RNA
      * @return ArrayList<String>
      */
     public static ArrayList<String> rnaToCodons(String rna)
