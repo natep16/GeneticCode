@@ -4,6 +4,7 @@ import java.util.HashMap;
 public class GeneticCode {
     // instance variables
     private String dna, rna;
+    private ArrayList<String> polypeptide;
     private static final String[] RNA_BASES = {"U","C","A","G"};
 
     /**
@@ -22,6 +23,7 @@ public class GeneticCode {
             rna = code;
             //dna = reverseTranscribe(code);
         }
+        polypeptide = translate();
     }
 
     /**
@@ -55,6 +57,10 @@ public class GeneticCode {
 
     }
 
+    private static boolean equals(String a, String b) {
+        return (a.compareTo(b) == 0);
+    }
+
     /**
      * Translates mRNA into a polypeptide of amino acids.
      * @return ArrayList<String>
@@ -85,7 +91,6 @@ public class GeneticCode {
 
     /**
      * Returns index of the first occurence of specified codon within given codon ArrayList.
-     * @param ArrayList<String> codons, String find
      * @return int index
      */
     public static int findFirstCodon(ArrayList<String> codons, String find)
@@ -96,13 +101,10 @@ public class GeneticCode {
         return -1;
     }
 
-    private static boolean equals(String a, String b) {
-        return (a.compareTo(b) == 0);
-    }
+
 
     /**
      * Converts RNA string to an ArrayList of codon Strings
-     * @param String rna
      * @return ArrayList<String>
      */
     public static ArrayList<String> rnaToCodons(String rna)
@@ -116,7 +118,6 @@ public class GeneticCode {
     }
     /**
      * Returns a map that properly matches the codon (not anticodon) with the corresponding amimo acid it codes for.
-     * @param none
      * @return HashMap<String, String>
      */
     public static HashMap<String, String> getAminoAcidMap()
@@ -135,4 +136,12 @@ public class GeneticCode {
 
         return map;
     }
+
+    public void printPolypeptide()
+    {
+        for (String aminoAcid: polypeptide)
+            System.out.println(aminoAcid);
+    }
+
+
 }
