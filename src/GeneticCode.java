@@ -34,12 +34,12 @@ public class GeneticCode {
         if (type == 0)
         {
             dna = code;
-            //rna = transcribe(code);
+            rna = transcribe();
         }
         else
         {
             rna = code;
-            //dna = reverseTranscribe(code);
+            dna = reverseTranscribe();
         }
     }
 
@@ -169,7 +169,7 @@ public class GeneticCode {
             if(letter.equals("A")){
                 outDna += "T";
             }
-            else if(letter.equals("T")){
+            else if(letter.equals("U")){
                 outDna += "A";
             }
             else if(letter.equals("C")){

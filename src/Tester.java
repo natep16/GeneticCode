@@ -8,7 +8,7 @@ public class Tester{
 
     public static void main (String[] args) throws FileNotFoundException
     {
-        File text = new File("C:\\Users\\nathanpiersma\\IdeaProjects\\GeneticCode\\src\\rna.txt");
+        File text = new File("C:\\Users\\riddl\\IdeaProjects\\GeneticCode\\src\\RNAtoReverseTranscribe.txt");
         Scanner in = new Scanner(text);
 
 
@@ -17,7 +17,6 @@ public class Tester{
             seq+=in.next().toUpperCase();
         in.close();
         GeneticCode a = new GeneticCode(seq);
-        a.printPolypeptide();
 
     }
 }
