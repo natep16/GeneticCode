@@ -21,7 +21,7 @@ public class GeneticCode {
         else if (typeOfCode(code).equalsIgnoreCase("RNA"))
         {
             rna = code;
-            //dna = reverseTranscribe(code);
+            dna = reverseTranscribe();
         }
         polypeptide = translate();
     }
@@ -142,7 +142,10 @@ public class GeneticCode {
             System.out.println(aminoAcid);
     }
 
-
+    /**
+     * Returns corresponding rna code from dna code.
+     * @return String
+     */
     public String transcribe(){
         String outRna = "";
         for(int i = 0; i < dna.length();i++){
@@ -162,6 +165,11 @@ public class GeneticCode {
         }
         return outRna;
     }
+
+    /**
+     * Returns corresponding dna String from rna.
+     * @return
+     */
     public String reverseTranscribe(){
         String outDna = "";
         for(int i = 0; i < rna.length();i++){

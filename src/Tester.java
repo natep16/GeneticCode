@@ -8,15 +8,13 @@ public class Tester{
 
     public static void main (String[] args) throws FileNotFoundException
     {
-        File text = new File("C:\\Users\\riddl\\IdeaProjects\\GeneticCode\\src\\RNAtoReverseTranscribe.txt");
+        File text = new File("/home/jadon/projects/GeneticCode/src/rna.txt");
         Scanner in = new Scanner(text);
-
-
-        String seq = "";
+        StringBuilder seq = new StringBuilder();
         while (in.hasNext())
-            seq+=in.next().toUpperCase();
+            seq.append(in.next().toUpperCase());
         in.close();
-        GeneticCode a = new GeneticCode(seq);
-
+        GeneticCode a = new GeneticCode(seq.toString());
+        System.out.println(a.transcribe());
     }
 }
