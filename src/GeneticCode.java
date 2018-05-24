@@ -3,7 +3,13 @@ import java.util.HashMap;
 
 public class GeneticCode {
     // instance variables
+    private int amntA,amntC,amntG,amntU,amntT;
     private String dna, rna;
+    //Bases order goes : A C G T
+    private int[] dnaBasesCount;
+    //Bases order goes : A C G U
+    private int[] rnaBasesCount;
+
     private ArrayList<String> polypeptide;
     private static final String[] RNA_BASES = {"U","C","A","G"};
 
@@ -16,6 +22,7 @@ public class GeneticCode {
         if (typeOfCode(code).equalsIgnoreCase("DNA"))
         {
             dna = code;
+            dnaBasesCount = countBasesDNA();
             rna = transcribe();
         }
         else if (typeOfCode(code).equalsIgnoreCase("RNA"))
@@ -188,5 +195,43 @@ public class GeneticCode {
             }
         }
         return outDna;
+    }
+    public int[] countBasesDNA(){
+        int[] countBases = new int[4];
+        for(int i=0; i<dna.length(); i++){
+            String base = dna.substring(i,i+1);
+            if(base.equals("A")){
+                countBases[0] += 1;
+            }
+            else if (base.equals("C")){
+                countBases[1] += 1;
+            }
+            else if(base.equals("G")){
+                countBases[2] +=1;
+            }
+            else if(base.equals("T")){
+                countBases[3] +=1;
+            }
+        }
+        return countBases;
+    }
+    public int[] countBasesRNA(){
+        int[] countBases = new int[4];
+        for(int i=0; i<dna.length(); i++){
+            String base = dna.substring(i,i+1);
+            if(base.equals("A")){
+                countBases[0] += 1;
+            }
+            else if (base.equals("C")){
+                countBases[1] += 1;
+            }
+            else if(base.equals("G")){
+                countBases[2] +=1;
+            }
+            else if(base.equals("U")){
+                countBases[3] +=1;
+            }
+        }
+        return countBases;
     }
 }
