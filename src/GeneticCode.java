@@ -24,11 +24,15 @@ public class GeneticCode {
             dna = code;
             dnaBasesCount = countBasesDNA();
             rna = transcribe();
+            rnaBasesCount = countBasesRNA();
         }
         else if (typeOfCode(code).equalsIgnoreCase("RNA"))
         {
             rna = code;
+            rnaBasesCount = countBasesRNA();
             dna = reverseTranscribe();
+            dnaBasesCount = countBasesDNA();
+
         }
         polypeptide = translate();
     }
