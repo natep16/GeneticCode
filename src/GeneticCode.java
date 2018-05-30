@@ -247,4 +247,16 @@ public class GeneticCode {
     public String getRna(){
         return rna;
     }
+
+    public ArrayList<String> getPolypeptide() {
+        return polypeptide;
+    }
+    public String getPolypeptideAsString(){
+        StringBuilder poly = new StringBuilder();
+        for(String s : polypeptide){
+            poly.append(s);
+            poly.append(" ");
+        }
+        return String.valueOf(poly);
+    }
 }

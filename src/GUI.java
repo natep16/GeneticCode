@@ -26,6 +26,8 @@ public class GUI extends Application {
     Text rnaAFreq,rnaCFreq,rnaGFreq,rnaUFreq;
     @FXML
     private Button button;
+    @FXML
+    private Text polypeptide;
     public static void main(String[] args) {
         launch(args);
     }
@@ -74,6 +76,7 @@ public class GUI extends Application {
 
             dnaString.setText(code.getDna());
             rnaString.setText(code.getRna());
+            polypeptide.setText(code.getPolypeptideAsString());
 
         }
     }

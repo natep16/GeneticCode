@@ -39,7 +39,7 @@
                         <Text fx:id="dnaTFreq" layoutX="52.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="T" />
                         <ScrollPane layoutX="132.0" layoutY="10.0" prefHeight="264.0" prefWidth="321.0">
                            <content>
-                              <Text fx:id="dnaString" strokeType="OUTSIDE" strokeWidth="0.0" text="DNA" wrappingWidth="272.6279296875" />
+                              <Text fx:id="dnaString" strokeType="OUTSIDE" strokeWidth="0.0" text="DNA" wrappingWidth="305.6279296875" />
                            </content>
                         </ScrollPane>
                      </children>
@@ -70,17 +70,9 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C :" />
-                        <Text layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="G :" />
-                        <Text layoutX="14.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A :" />
-                        <Text layoutX="14.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="U :" />
-                        <Text fx:id="rnaCFreq1" layoutX="52.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C" />
-                        <Text fx:id="rnaGFreq1" layoutX="52.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="G" />
-                        <Text fx:id="rnaAFreq1" layoutX="52.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A" />
-                        <Text fx:id="rnaUFreq1" layoutX="52.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="U" />
-                        <ScrollPane layoutX="132.0" layoutY="10.0" prefHeight="260.0" prefWidth="321.0">
+                        <ScrollPane layoutX="12.0" layoutY="10.0" prefHeight="260.0" prefWidth="427.0">
                            <content>
-                              <Text fx:id="rnaString1" strokeType="OUTSIDE" strokeWidth="0.0" text="RNA" wrappingWidth="303.99999821186066" />
+                              <Text fx:id="polypeptide" strokeType="OUTSIDE" strokeWidth="0.0" text="Polypeptide" wrappingWidth="411.99999821186066" />
                            </content>
                         </ScrollPane>
                      </children>
