@@ -5,9 +5,9 @@ public class GeneticCode {
     // instance variables
     private int amntA,amntC,amntG,amntU,amntT;
     private String dna, rna;
-    //Bases order goes : A C G T
+    //Bases order goes : C G A T
     private int[] dnaBasesCount;
-    //Bases order goes : A C G U
+    //Bases order goes : C G A U
     private int[] rnaBasesCount;
 
     private ArrayList<String> polypeptide;
@@ -24,6 +24,7 @@ public class GeneticCode {
             dna = code;
             dnaBasesCount = countBasesDNA();
             rna = transcribe();
+            rnaBasesCount = countBasesRNA();
         }
         else if (typeOfCode(code).equalsIgnoreCase("RNA"))
         {
@@ -200,13 +201,13 @@ public class GeneticCode {
         int[] countBases = new int[4];
         for(int i=0; i<dna.length(); i++){
             String base = dna.substring(i,i+1);
-            if(base.equals("A")){
+            if(base.equals("C")){
                 countBases[0] += 1;
             }
-            else if (base.equals("C")){
+            else if (base.equals("G")){
                 countBases[1] += 1;
             }
-            else if(base.equals("G")){
+            else if(base.equals("A")){
                 countBases[2] +=1;
             }
             else if(base.equals("T")){
@@ -217,15 +218,15 @@ public class GeneticCode {
     }
     public int[] countBasesRNA(){
         int[] countBases = new int[4];
-        for(int i=0; i<dna.length(); i++){
-            String base = dna.substring(i,i+1);
-            if(base.equals("A")){
+        for(int i=0; i<rna.length(); i++){
+            String base = rna.substring(i,i+1);
+            if(base.equals("C")){
                 countBases[0] += 1;
             }
-            else if (base.equals("C")){
+            else if (base.equals("G")){
                 countBases[1] += 1;
             }
-            else if(base.equals("G")){
+            else if(base.equals("A")){
                 countBases[2] +=1;
             }
             else if(base.equals("U")){
@@ -233,5 +234,17 @@ public class GeneticCode {
             }
         }
         return countBases;
+    }
+    public int[] getDnaBases(){
+        return dnaBasesCount;
+    }
+    public int[] getRnaBases(){
+        return rnaBasesCount;
+    }
+    public String getDna(){
+        return dna;
+    }
+    public String getRna(){
+        return rna;
     }
 }
